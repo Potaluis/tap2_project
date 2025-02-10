@@ -20,3 +20,26 @@
     }
 </style>
 -->
+
+<style>
+    *{
+        text-align: center;
+    }
+    h1{
+        font-size: 100px;
+        font-weight: bold;
+    }
+    input{
+        border-color: black;
+        border-width: 2px;
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 3px;
+    }
+    input[type="submit"]:hover{
+        background-color: lightblue;
+        color: black;
+        cursor: pointer;
+    }
+
+    </style>
