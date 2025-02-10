@@ -10,7 +10,7 @@
 <input type="submit" value="Submit">
 </form>
 
-<label>Forgot password?</label>
+
 
 <!--Tailwindcss will be done after, normal css for placeholder-->
 <!---<style>
@@ -36,10 +36,18 @@
         border-radius: 10px;
         padding: 3px;
     }
+    input[type="submit"]{
+        padding-left: 67.5px;
+        padding-right: 67.5px;
+        
+    } 
     input[type="submit"]:hover{
         background-color: lightblue;
         color: black;
         cursor: pointer;
+    } 
+    label{
+        
     }
 
     </style>
