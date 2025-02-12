@@ -1,14 +1,17 @@
-<script>
-
-</script>
-
-<div class="background-base-color"></div>
-
-<style>
-    .background-base-color{
-        position: absolute;
-        background-color: aquamarine;
-        min-height: 100%;
-        width: 100%;
+<div class="pattern">
+    <slot></slot>
+  </div>
+  
+  <style>
+    .pattern {
+      position: fixed; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #1a1a1a;
+      background-image: radial-gradient(#333333 1px, transparent 1px);
+      background-size: 20px 20px;
+      z-index: -1;
     }
-</style>
+  </style>

@@ -5,11 +5,13 @@
 
 </script>
 
+<BackgroundPattern>
+
 <Drawer drawerButtonKind="Drawer" drawerPosition="left"></Drawer>
 
 <ProfileDrawer drawerButtonKind="Profile" drawerPosition="right"></ProfileDrawer>
 
-<BackgroundPattern></BackgroundPattern>
+</BackgroundPattern>
 
 
 
