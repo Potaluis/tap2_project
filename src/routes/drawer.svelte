@@ -14,19 +14,17 @@
 
 <button onclick={openDrawer}>Open</button>
 
-<sl-drawer label="Drawer" class="drawer menu" bind:this={drawer}>
+<sl-drawer label="Menu" class="drawer menu" bind:this={drawer}>
 
-	<sl-select>
-		<sl-menu-item value="option-1">Option 1</sl-menu-item>
-		<sl-menu-item value="option-2">Option 2</sl-menu-item>
-		<sl-menu-item value="option-3">Option 3</sl-menu-item>
-	</sl-select>
+    <sl-menu>
+		<sl-menu-item value="option-1">Home</sl-menu-item>
+	</sl-menu>
 	
 </sl-drawer>
 
 <svelte:head>
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/themes/base.css">
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/shoelace.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace.js"></script>
 </svelte:head>
+
+<!--Taildwind CSS will be after normal CSS-->
