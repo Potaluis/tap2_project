@@ -2,6 +2,8 @@
 
 <script lang="ts">
 
+	let { drawerButtonKind, drawerPosition }= $props();
+
     interface SlDrawer extends HTMLElement {
         show: () => void;
         hide: () => void;
@@ -17,9 +19,9 @@
 	
 </script>
 
-<button onclick={openDrawer}>Open</button>
+<button onclick={openDrawer}>{drawerButtonKind}</button>
 
-<sl-drawer label="Menu" class="drawer menu" bind:this={drawer} placement="left">
+<sl-drawer label="Menu" class="drawer menu" bind:this={drawer} placement={drawerPosition}>
 
     <sl-menu>
 		<sl-menu-item value="option-1">Home</sl-menu-item>

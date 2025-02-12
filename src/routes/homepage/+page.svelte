@@ -4,6 +4,6 @@
 </script>
 
 
-<Drawer></Drawer>
+<Drawer drawerButtonKind="Drawer" drawerPosition="left"></Drawer>
 
 
