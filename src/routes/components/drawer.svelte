@@ -42,3 +42,11 @@
 
 <!--Taildwind CSS will be after normal CSS-->
 
+<style>
+	button{
+		color: aliceblue;
+		margin: 20px;
+		flex-direction: row;
+	}
+</style>
+

@@ -51,6 +51,9 @@
     .button-container {
         display: flex;
         justify-content: flex-end;
-        width: 100%;
+		color: aliceblue;
+		margin-top: -40px;
+		margin-right: 20px;
+		flex-direction: row;
     }
 </style>
