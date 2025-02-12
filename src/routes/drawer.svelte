@@ -14,7 +14,7 @@
 
 <button onclick={openDrawer}>Open</button>
 
-<sl-drawer label="Menu" class="drawer menu" bind:this={drawer}>
+<sl-drawer label="Menu" class="drawer menu" bind:this={drawer} placement="left">
 
     <sl-menu>
 		<sl-menu-item value="option-1">Home</sl-menu-item>
