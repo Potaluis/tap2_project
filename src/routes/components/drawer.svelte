@@ -48,5 +48,26 @@
 		margin: 20px;
 		flex-direction: row;
 	}
+    sl-drawer::part(base) {
+    	color: white;      
+    }
+
+  	sl-drawer::part(header) {
+		background-color: #2a2a2a; 
+  	}
+
+  	sl-drawer::part(body) {
+		background-color: #1a1a1a;  
+ 	 }
+
+  	sl-drawer::part(footer) {
+		background-color: #2a2a2a;  
+ 	 }
+	  sl-menu-item::part(base) {
+    	color: white;
+  }
+  sl-menu-item::part(base):hover {
+    background-color: #3a3a3a;
+  }
 </style>
 
