@@ -18,15 +18,20 @@
 	};
 	
 </script>
-
 <div class="button-container">
-<button onclick={openDrawer}>{drawerButtonKind}</button>
+
+	<button onclick={openDrawer} style="text-align: right">{drawerButtonKind}</button>
+
 </div>
 
 <sl-drawer label="Menu" class="drawer menu" bind:this={drawer} placement={drawerPosition}>
 
     <sl-menu>
-		<sl-menu-item value="option-1">Home</sl-menu-item>
+		<sl-menu-item value="option-1">Switch Accounts</sl-menu-item>
+		<sl-menu-item value="option-2">Manage Account</sl-menu-item>
+		<sl-menu-item value="option-3">Theme</sl-menu-item>
+		<sl-menu-item value="option-4">Help</sl-menu-item>
+		<sl-menu-item value="option-4">Logout</sl-menu-item>
 	</sl-menu>
 	
 </sl-drawer>
@@ -42,3 +47,10 @@
 
 <!--Taildwind CSS will be after normal CSS-->
 
+<style>
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+</style>
