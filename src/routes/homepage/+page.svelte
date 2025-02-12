@@ -1,32 +1,7 @@
-<!--Drawer example from Svelte Documentation: https://svelte.dev/playground/717ff20010c74d56ad613e17194c8d59?version=5.19.10#H4sIAAAAAAAACq1TwW7bMAz9FYEYkASIrTbZybONDuhuA_oB0w6KxM5qZckwmXRFkH8fJNtIC_SwATsYkB_fIx8p6gxB9wgV3I_6BUeBJwxMsIVH55Gg-nEGfh0SIQGwXehfh6GkE3pO2EETfoSbGDinq6AmM7qBWxUUp88jCzuVbMQnYs243nxZoiYGYhEHDPcLZ71p2rMKmcGTstTWfkt-vztiDDiuV-SLzllcbcU6d7IRTStStuix9PHXepXDm7nUkoi6-DKVD4ovs41aXj2H-nBkjkHEYLwzz835au7SPgwYajkxJjb5Yu7O6wP6Rs3zVSCM10SNgjneYzgqEAcXbMWdo-Zs56yTm5SK0KOZZ5eBJCocYy9O2h-xURAHdjEUtwrah3wUt7V8y_wb9e6q3v27en9V7z9QZ-htJyEjU7fz1PLiVB1q2y5XXXsXnsWYZ0j86pE6RFYguhEfGwUd80CVlMaG8oksencay4Asw9DLO-oiem2wyFK5_N7typvypjgg63L_WVpHLLnDHkmmXS4NkYI2OcobINITaBT00R49KhA0mv9ZeomVT6ns-72Tb4cCW2D8zVDxeMTLz8sfcUA9xL4DAAA=-->
-
 <script>
-	
-	let drawer = $state();
-	
-	const openDrawer = ()=>{
+    import Drawer from "../drawer.svelte";
 
-		drawer.show();
-
-	};
-	
 </script>
 
-<button onclick={openDrawer}>Open</button>
 
-<sl-drawer label="Drawer" class="drawer menu" bind:this={drawer}>
-
-	<sl-select>
-		<sl-menu-item value="option-1">Option 1</sl-menu-item>
-		<sl-menu-item value="option-2">Option 2</sl-menu-item>
-		<sl-menu-item value="option-3">Option 3</sl-menu-item>
-	</sl-select>
-	
-</sl-drawer>
-
-<svelte:head>
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/themes/base.css">
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/shoelace.js"></script>
-
-</svelte:head>
+<Drawer></Drawer>
