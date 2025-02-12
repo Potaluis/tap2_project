@@ -1,5 +1,5 @@
 <script>
-    import Drawer from "../drawer.svelte";
+    import Drawer from "../components/drawer.svelte";
 
 </script>
 
