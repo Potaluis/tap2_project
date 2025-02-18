@@ -1,15 +1,19 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "tu-api-key",
-  authDomain: "tu-auth-domain",
-  projectId: "tu-project-id",
-  storageBucket: "tu-storage-bucket",
-  messagingSenderId: "tu-messaging-sender-id",
-  appId: "tu-app-id"
+  apiKey: "AIzaSyDP9z1A9J747KcLxy1rH5b6jAs7ryL8fvc",
+  authDomain: "tap2project.firebaseapp.com",
+  projectId: "tap2project",
+  storageBucket: "tap2project.firebasestorage.app",
+  messagingSenderId: "1016344462649",
+  appId: "1:1016344462649:web:b831b76f0842b06b3f54e8",
+  measurementId: "G-CBMQC26XW5"
 };
 
-// Inicializar Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const analytics = getAnalytics(app);

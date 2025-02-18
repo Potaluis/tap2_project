@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "tap2project"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "tap2project-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
