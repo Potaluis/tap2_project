@@ -8,51 +8,36 @@
     }
 </script>
 
-<div class="container">
-<h1>LOG IN</h1>
-<form on:submit={handleSubmit}>
-<input type="text" id="username" name="username" placeholder="Username"><br>
-<input type="password" id="pswd" name="pswd" placeholder="Password"><br>
-<input type="submit" value="Submit">
-</form>
-</div>
-
-
-<!--Tailwindcss will be done after, normal css for placeholder-->
-<!---<style>
-    @reference "tailwindcss/theme";
-    :global(html) {
-      background-color: theme(--color-gray-100);
-    }
-</style>
--->
-
-<style>
-    .container{
-        text-align: center;
-        max-width: 100%;
-        margin-top: 15%;
-    }
-    h1{
-        font-size: 100px;
-        font-weight: bold;
-    }
-    input{
-        border-color: black;
-        border-width: 2px;
-        margin-top: 10px;
-        border-radius: 10px;
-        padding: 3px;
-    }
-    input[type="submit"]{
-        padding-left: 67.5px;
-        padding-right: 67.5px;
+<div class="min-h-screen flex items-center justify-center bg-[#1a1a1a]">
+    <div>
+        <h1 class="text-8xl font-bold text-center text-white mb-8">
+            LOG IN
+        </h1>
         
-    } 
-    input[type="submit"]:hover{
-        background-color: lightblue;
-        color: black;
-        cursor: pointer;
-    } 
+        <form on:submit={handleSubmit} class="space-y-4">
+            <div class="space-y-4">
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    placeholder="Username"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                >
+                
+                <input 
+                    type="password" 
+                    id="pswd" 
+                    name="pswd" 
+                    placeholder="Password"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                >
+            </div>
 
-    </style>
+            <button 
+                type="submit"
+                class="w-full px-8 py-3 text-lg font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
