@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth, signOut, type User } from 'firebase/auth';
+import { writable, type Writable } from 'svelte/store';
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,4 +20,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 const analytics = getAnalytics(app);
+
+
+export const user: Writable<User | null> = writable(null);
+
+// Mantener el estado del usuario actualizado
+auth.onAuthStateChanged((newUser) => {
+    user.set(newUser);
+});

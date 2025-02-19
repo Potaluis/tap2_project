@@ -1,10 +1,26 @@
 
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { auth } from '$lib/firebase';
+    import { signInWithEmailAndPassword } from 'firebase/auth';
 
-    function handleSubmit(event: SubmitEvent) {
+    let email = '';
+    let password = '';
+    let errorMessage = '';
+    
+
+    async function handleSubmit(event: SubmitEvent) {
         event.preventDefault();
         goto('/homepage');
+
+        try {
+            // Try to log with firebase
+            await signInWithEmailAndPassword(auth, email, password);
+            goto('/homepage');
+        } catch (error: any) {
+            errorMessage = 'Invalid email or password';
+            console.error('Error:', error);
+        }
     }
 </script>
 
@@ -13,6 +29,10 @@
         <h1 class="text-8xl font-bold text-center text-white mb-8">
             LOG IN
         </h1>
+
+        {#if errorMessage}
+            <div class="text-red-500 text-center mb-4">{errorMessage}</div>
+        {/if}
         
         <form on:submit={handleSubmit} class="space-y-4">
             <div class="space-y-4">
@@ -22,6 +42,7 @@
                     name="username" 
                     placeholder="Username"
                     class="w-full px-4 py-3 border border-[#DDDDDD] rounded-xl placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+                    required
                     >
                 
                 <input 
@@ -30,6 +51,7 @@
                     name="pswd" 
                     placeholder="Password"
                     class="w-full px-4 py-3 border border-[#DDDDDD] rounded-xl placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+                    required
                     >
             </div>
 
