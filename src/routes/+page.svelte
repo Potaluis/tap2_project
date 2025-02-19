@@ -18,10 +18,14 @@
             await signInWithEmailAndPassword(auth, email, password);
             goto('/homepage');
         } catch (error: any) {
-            errorMessage = 'Invalid email or password';
+            if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                errorMessage = 'Email o contraseña incorrectos';
+            } else {
+                errorMessage = 'Error al iniciar sesión';
+            }
             console.error('Error:', error);
         }
-    }
+        }
 </script>
 
 <div class="min-h-screen flex items-center justify-center bg-[#1a1a1a]">
