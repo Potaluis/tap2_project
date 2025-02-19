@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, type User } from 'firebase/auth';
+import { deleteApp, getApp, getApps, initializeApp } from "firebase/app";
+import { getAuth, setPersistence, inMemoryPersistence, type User } from 'firebase/auth';
 import { writable, type Writable } from 'svelte/store';
 
 
@@ -18,9 +18,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const user: Writable<User | null> = writable(null);
 
 /*
 if (typeof window !== 'undefined') {
@@ -29,3 +26,15 @@ if (typeof window !== 'undefined') {
   });
 }
   */
+
+let firebaseApp;
+if(!getApps().length){
+  firebaseApp = initializeApp(firebaseConfig)
+} else {
+  firebaseApp = getApp()
+  deleteApp(firebaseApp)
+  firebaseApp = initializeApp(firebaseConfig)
+}
+
+// Initialize Firebase
+export const auth = getAuth(firebaseApp)
