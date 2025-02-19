@@ -1,4 +1,3 @@
-
 <script lang="ts">
     import { goto } from '$app/navigation';
     import { auth } from '$lib/firebase';
@@ -7,11 +6,9 @@
     let email = '';
     let password = '';
     let errorMessage = '';
-    let isLoading = false;
 
     async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
-    isLoading = true;
     errorMessage = ''; // Limpiamos el error anterior
 
     console.log('Intentando login con:', email); // Log 1
@@ -39,8 +36,6 @@
         } else {
             errorMessage = 'Error al iniciar sesión';
         }
-    } finally {
-        isLoading = false;
     }
 }
 </script>
@@ -76,9 +71,8 @@
 
             <button 
                 type="submit"
-                disabled={isLoading}
                 class="w-full px-8 py-3 text-lg font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200">
-                {isLoading ? 'Loading...' : 'Submit'}
+                Submit
             </button>
         </form>
     </div>
