@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, signOut, type User } from 'firebase/auth';
+import { getAuth, type User } from 'firebase/auth';
 import { writable, type Writable } from 'svelte/store';
 
 
@@ -21,10 +20,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-const analytics = getAnalytics(app);
 
 
 export const user: Writable<User | null> = writable(null);
+
+
+if (typeof window !== 'undefined') {
+  import('firebase/analytics').then(({ getAnalytics }) => {
+      getAnalytics(app);
+  });
+}
 
 // Mantener el estado del usuario actualizado
 auth.onAuthStateChanged((newUser) => {

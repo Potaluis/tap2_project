@@ -37,16 +37,18 @@
         <form on:submit={handleSubmit} class="space-y-4">
             <div class="space-y-4">
                 <input 
-                    type="text" 
-                    id="username" 
-                    name="username" 
-                    placeholder="Username"
+                    type="email" 
+                    bind:value={email}
+                    id="email" 
+                    name="email" 
+                    placeholder="Email"
                     class="w-full px-4 py-3 border border-[#DDDDDD] rounded-xl placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
                     required
                     >
                 
                 <input 
                     type="password" 
+                    bind:value={password}
                     id="pswd" 
                     name="pswd" 
                     placeholder="Password"
