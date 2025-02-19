@@ -7,25 +7,42 @@
     let email = '';
     let password = '';
     let errorMessage = '';
-    
+    let isLoading = false;
 
     async function handleSubmit(event: SubmitEvent) {
-        event.preventDefault();
-        goto('/homepage');
+    event.preventDefault();
+    isLoading = true;
+    errorMessage = ''; // Limpiamos el error anterior
 
-        try {
-            // Try to log with firebase
-            await signInWithEmailAndPassword(auth, email, password);
+    console.log('Intentando login con:', email); // Log 1
+
+    try {
+        if (!auth) {
+            console.error('Auth no está inicializado');
+            return;
+        }
+
+        console.log('Auth está inicializado, intentando login...'); // Log 2
+        
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        
+        if (userCredential) {
+            console.log('Login exitoso:', userCredential.user.email); // Log 3
             goto('/homepage');
-        } catch (error: any) {
-            if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                errorMessage = 'Email o contraseña incorrectos';
-            } else {
-                errorMessage = 'Error al iniciar sesión';
-            }
-            console.error('Error:', error);
+        }        
+    } catch (error: any) {
+        console.error('Error code:', error.code); // Log 4
+        console.error('Error message:', error.message); // Log 5
+        
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+            errorMessage = 'Email o contraseña incorrectos';
+        } else {
+            errorMessage = 'Error al iniciar sesión';
         }
-        }
+    } finally {
+        isLoading = false;
+    }
+}
 </script>
 
 <div class="min-h-screen flex items-center justify-center bg-[#1a1a1a]">
@@ -59,8 +76,9 @@
 
             <button 
                 type="submit"
+                disabled={isLoading}
                 class="w-full px-8 py-3 text-lg font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200">
-                Submit
+                {isLoading ? 'Loading...' : 'Submit'}
             </button>
         </form>
     </div>

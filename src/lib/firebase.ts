@@ -20,18 +20,12 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-
 export const user: Writable<User | null> = writable(null);
 
-
+/*
 if (typeof window !== 'undefined') {
   import('firebase/analytics').then(({ getAnalytics }) => {
       getAnalytics(app);
   });
 }
-
-// Mantener el estado del usuario actualizado
-auth.onAuthStateChanged((newUser) => {
-    user.set(newUser);
-});
+  */
